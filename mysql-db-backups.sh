@@ -14,16 +14,16 @@ function backup()  {
         if [ -d $DIR ]
         then
 	        rm -rf $DIR
-		    mkdir /home/mgt/db_backups
-        	for DB in $(mysql -h"localhost" -u"root" -p"uP0JUMvqjFa6qUtuTCYegKv2" -e "show databases;" | sed s/"Database"// | sed s/"information_schema"// | sed s/"mysql"// | sed s/"performance_schema"// | sed s/"sys"// | xargs -0 );
+		    mkdir /home/sachin/db_backups
+        	for DB in $(mysql -h"localhost" -u"root" -p"root" -e "show databases;" | sed s/"Database"// | sed s/"information_schema"// | sed s/"mysql"// | sed s/"performance_schema"// | sed s/"sys"// | xargs -0 );
         	do
-        		mysqldump -h"localhost" -u"root" -p"uP0JUMvqjFa6qUtuTCYegKv2" --opt --single-transaction --quick --routines $DB  > "/home/mgt/db_backups/$DB.sql";
+        		mysqldump -h"localhost" -u"root" -p"root" --opt --single-transaction --quick --routines $DB  > "/home/sachin/db_backups/$DB.sql";
         	done
         else
-		    mkdir /home/mgt/db_backups
-        	for DB in $(mysql -h"localhost" -u"root" -p"uP0JUMvqjFa6qUtuTCYegKv2" -e "show databases;" | sed s/"Database"// | sed s/"information_schema"// | sed s/"mysql"// | sed s/"performance_schema"// | sed s/"sys"// | xargs -0 );
+		    mkdir /home/sachin/db_backups
+        	for DB in $(mysql -h"localhost" -u"root" -p"root" -e "show databases;" | sed s/"Database"// | sed s/"information_schema"// | sed s/"mysql"// | sed s/"performance_schema"// | sed s/"sys"// | xargs -0 );
         	do
-        		mysqldump -h"localhost" -u"root" -p"uP0JUMvqjFa6qUtuTCYegKv2" --opt --single-transaction --quick --routines $DB  > "/home/mgt/db_backups/$DB.sql";
+        		mysqldump -h"localhost" -u"root" -p"root" --opt --single-transaction --quick --routines $DB  > "/home/sachin/db_backups/$DB.sql";
         	done
 
         fi
